@@ -1,8 +1,9 @@
 import React from "react";
 import { Todo } from "../models/Todo";
+import TodoListItem from "./TodoListItem";
 
 const TodoList = () => {
-    const todo: Todo[] = [
+    const todos: Todo[] = [
         {
             id: 1,
             title: "Ir ao supermercado",
@@ -16,7 +17,7 @@ const TodoList = () => {
         {
             id: 3,
             title: "Ir ao Taekwondo",
-            done: false
+            done: true
         },
     ];
     return (
@@ -29,6 +30,13 @@ const TodoList = () => {
                         <th></th>
                     </tr>
                 </thead>
+                <tbody>
+                    {
+                        todos?.map(
+                            todo => (<TodoListItem key={todo.id} todo={todo}></TodoListItem>)
+                        )
+                    }
+                </tbody>
         </table>
     )
 }
